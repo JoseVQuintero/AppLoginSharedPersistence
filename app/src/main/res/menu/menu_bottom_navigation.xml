@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_note" android:title="Note" android:icon="@drawable/ic_notes"/>
+    <item android:id="@+id/menu_public" android:title="Public" android:icon="@drawable/ic_public"/>
+    <item android:id="@+id/menu_work" android:title="Work" android:icon="@drawable/ic_work"/>
+</menu>
