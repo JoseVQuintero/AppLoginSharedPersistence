@@ -21,6 +21,10 @@ abstract class PersistenceDatabase: RoomDatabase() {
             instance ?: buildDatabase(context).also { instance = it }
         }
 
-        private fun buildDatabase(context: Context) = Room.databaseBuilder(context,PersistenceDatabase::class.java,"MyDatabase").build()
+        private fun buildDatabase(context: Context) =
+            Room.databaseBuilder(context,PersistenceDatabase::class.java,"MyDatabase.db")
+                .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
+                .build()
     }
 }

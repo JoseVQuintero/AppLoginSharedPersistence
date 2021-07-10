@@ -10,10 +10,12 @@ import com.danisable.apploginsharedpersistence.R
 import com.danisable.apploginsharedpersistence.domain.data.note.Note
 import com.danisable.apploginsharedpersistence.presentation.adapters.NoteAdapter
 import com.danisable.apploginsharedpersistence.presentation.adapters.listener.ListenerNote
+import com.danisable.apploginsharedpersistence.presentation.fragment.public.NotesPresenter
 import kotlinx.android.synthetic.main.fragment_notes.*
 
 class NotesFragment: Fragment(),ListenerNote, View.OnClickListener {
     private lateinit var adapter: NoteAdapter
+    private var presenter: NotesPresenter? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,8 +32,12 @@ class NotesFragment: Fragment(),ListenerNote, View.OnClickListener {
         //rvArtists.layoutManager = GridLayoutManager(this,3)
         rvNotes.adapter = adapter
 
+        presenter = NotesPresenter(requireContext())
+
         fdDelete.setOnClickListener(this)
-        fdAdd.setOnClickListener(this)
+        fdAdd.setOnClickListener{
+
+        }
     }
 
 
