@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
-        replaceFragment(NotesFragment(),"",this)
+        replaceFragment(NotesFragment(),"",this, null)
         bottomNavigation.setOnNavigationItemSelectedListener(this)
 
         // Set the toolbar as support action bar
@@ -82,18 +82,18 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.menu_note -> replaceFragment(NotesFragment(),"This value Fragment Home",this)
-            R.id.menu_public -> replaceFragment(PublicFragment(),"This value Fragment Home",this)
-            R.id.menu_work -> replaceFragment(WorkFragment(),"This value Fragment News",this)
+            R.id.menu_note -> replaceFragment(NotesFragment(),"This value Fragment Home",this, null)
+            R.id.menu_public -> replaceFragment(PublicFragment(),"This value Fragment Home",this,null)
+            R.id.menu_work -> replaceFragment(WorkFragment(),"This value Fragment News",this,null)
         }
         return false
     }
 
-    private fun replaceFragment(fragment: Fragment, message: String, context: Context){
+    fun replaceFragment(fragment: Fragment, message: String, context: Context, bundle: Bundle?){
         val sm = supportFragmentManager.beginTransaction()
         sm.apply {
             setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-
+            fragment.arguments = bundle
             replace(R.id.container, fragment)
             addToBackStack(null)
             commit()

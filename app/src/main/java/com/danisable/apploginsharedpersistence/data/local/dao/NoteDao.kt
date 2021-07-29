@@ -1,7 +1,7 @@
-package com.danisable.apploginsharedpersistence.domain.data.local.dao
+package com.danisable.apploginsharedpersistence.data.local.dao
 
 import androidx.room.*
-import com.danisable.apploginsharedpersistence.domain.data.local.entity.NoteEntity
+import com.danisable.apploginsharedpersistence.data.local.entity.NoteEntity
 
 @Dao
 interface NoteDao {
